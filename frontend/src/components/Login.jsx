@@ -1,6 +1,4 @@
-// ════════════════════════════════════════════════════
-// IRCTC FRONTEND - LOGIN COMPONENT
-// ════════════════════════════════════════════════════
+
 
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
@@ -8,6 +6,10 @@ import axios from 'axios';
 import './Login.css';
 
 function Login() {
+
+
+
+  const API_URL = import.meta.env.VITE_API_URL;
 
 
 
@@ -32,7 +34,7 @@ function Login() {
       console.log('Username:', username);
 
       // Send POST request to backend
-      const response = await axios.post('http://localhost:5000/api/login', {
+      const response = await axios.post(`${API_URL}/api/login`, {
         username: username,
         password: password
       });

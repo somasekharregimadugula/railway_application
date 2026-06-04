@@ -5,6 +5,7 @@ import axios from 'axios';
 import './Dashboard.css';
 
 function Dashboard() {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function Dashboard() {
       }
 
       try {
-        const response = await axios.get('http://localhost:5000/api/profile', {
+        const response = await axios.get(`${API_URL}/api/profile`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
